@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
 import images from "../images/logo.png";
 import "./Header.css";
+import { useSelector } from "react-redux";
+import { selectCartItems } from "../../Redux/cartSlice";
 const Header = () => {
+  const cartItem = useSelector(selectCartItems)
   return (
     <>
       <div className="container">
@@ -28,7 +31,7 @@ const Header = () => {
           <button type="button" className="btn btn-primary position-relative">
             <span className="material-symbols-outlined">shopping_cart</span>
             <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              
+              {cartItem.length}
               <span className="visually-hidden">unread messages</span>
             </span>
           </button>

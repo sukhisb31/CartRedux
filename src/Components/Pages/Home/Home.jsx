@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Products } from "../../../data";
-import {addToCart, selectCartItems} from "../../Redux/cartSlice/index"
+import {addToCart, selectCartItems} from "../../Redux/cartSlice"
 
 const Home = () => {
   const dispatch = useDispatch()
