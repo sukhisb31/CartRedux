@@ -1,12 +1,13 @@
 
 
 import { useDispatch, useSelector } from "react-redux";
-import { selectCartItems,clearCart } from "../Redux/cartSlice";
+import { selectCartItems,clearCart, decrementItem, incrementItem, selectCartTotal} from "../Redux/cartSlice";
 const Cart = () => {
 
   const dispatch = useDispatch();
   const cartItem = useSelector(selectCartItems);
   console.log(cartItem);
+  const cartTotal = useSelector(selectCartTotal);
   return (
     <>
       <div className="container">
@@ -31,10 +32,14 @@ const Cart = () => {
                   <div className="card-body">
                     <h5 className="card-title">{item.name}</h5>
                     <p className="card-text">{item.name}</p>
+
+                    {/* Increment Decrement button */}
+                    <button className="btn btn-light mx-3 " onClick={()=>dispatch(decrementItem(item))}>-</button>
+                      {item.quantity}
+                    <button className="btn btn-light mx-3 " onClick={()=>dispatch(incrementItem(item))}>+</button><br /><br />
                     <button className="btn btn-primary mx-3">
                       {item.price} ₹
                     </button>
-                    <button className="btn btn-warning">Buy Now</button>
                   </div>
                 </div>
               </div>
@@ -42,10 +47,15 @@ const Cart = () => {
           
           </div>
         ))}
-
+<h1>{
+    cartTotal
+  }</h1>
           {/* Clear Button */}
-      <div className="clear">
-        <button className="btn btn-warning "  style={{justifyItems:"center"}} onClick={()=>{dispatch(clearCart())}}>Clear Cart</button>
+      <div className="clear" style={{marginLeft:"45%"}}>
+
+        <button className="btn btn-warning "  style={{justifyContent:"center"}} onClick={()=>{dispatch(clearCart())}}>Clear Cart</button>
+        <button className="btn btn-warning">Buy Now</button>
+
       </div>
     
       </div>

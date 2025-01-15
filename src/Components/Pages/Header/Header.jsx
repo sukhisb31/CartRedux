@@ -2,13 +2,13 @@ import { NavLink } from "react-router-dom";
 import images from "../images/logo.png";
 import "./Header.css";
 import { useSelector } from "react-redux";
-import { selectCartItems } from "../../Redux/cartSlice";
+import { selectCartCount } from "../../Redux/cartSlice";
 const Header = () => {
-  const cartItem = useSelector(selectCartItems)
+  const cartItem = useSelector(selectCartCount)
   return (
     <>
-      <div className="container">
-        <div className="nav_bar bg-primary sticky-top">
+      <div className="container-fluid">
+        <div className="nav_bar bg-primary sticky-top align-items-center">
 
             {/*------------- Logo ---------------*/}
           <div className="logo">
@@ -19,10 +19,10 @@ const Header = () => {
           </div>
 
           {/*-------------- Header ---------------*/}
-          <ul className="navbar"  >
-              <NavLink to="/" style={{color:"white", textDecoration:"none", alignItems:"center"}}>Home</NavLink>
-              <NavLink to="/contact" style={{color:"white" ,textDecoration:"none"}}> Contact</NavLink>
-              <NavLink to="/about" style={{color:"white", textDecoration:"none"}}>About</NavLink>
+          <ul className="navbar">
+              <NavLink to="/" style={{color:"white", textDecoration:"none", fontSize:"larger", fontWeight:"600" }}>Home</NavLink>
+              <NavLink to="/contact" style={{color:"white", fontSize:"larger", fontWeight:"600" , textDecoration:"none"}}> Contact</NavLink>
+              <NavLink to="/about" style={{color:"white", fontSize:"larger", fontWeight:"600" , textDecoration:"none"}}>About</NavLink>
             </ul>
             <ul className="cart-nav">
 
@@ -31,7 +31,7 @@ const Header = () => {
           <button type="button" className="btn btn-primary position-relative">
             <span className="material-symbols-outlined">shopping_cart</span>
             <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              {cartItem.length}
+              {cartItem}
               <span className="visually-hidden">unread messages</span>
             </span>
           </button>
