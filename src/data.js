@@ -26,5 +26,19 @@ export const Products = [
         price:30,
         description:"Grocery-Flour",
         image:"https://img.freepik.com/premium-photo/wheat-flour-bowl-ears_82893-5238.jpg?w=360"
+    },
+    {
+        id:5,
+        name:"Salt",
+        price:35,
+        description:"Grocery-Salt",
+        image:"https://img.freepik.com/premium-vector/salt-vector-illustration-hill-salt-saltcellar-spoon-salty-flavor-seasoning-heaps-powder-spoon-with-sodium-crystals-hand-drawn-sketch_106796-2972.jpg?ga=GA1.1.2130088530.1720602355&semt=ais_hybrid"
+    },
+    {
+        id:6,
+        name:"Red-Chilli",
+        price:40,
+        description:"Grocery-Chilli",
+        image:"https://img.freepik.com/free-photo/red-chillies-are-stone-mortar-black-surface_1150-25566.jpg?ga=GA1.1.2130088530.1720602355&semt=ais_hybrid"
     }
 ]

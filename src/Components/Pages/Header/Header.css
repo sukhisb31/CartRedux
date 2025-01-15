@@ -5,11 +5,10 @@
 }
 .navbar{
     display: flex;
-
 }
 .logo-img{
     width:65px;
 }
 .nav_bar{
-    gap:5px;
+    gap:10px;
 }

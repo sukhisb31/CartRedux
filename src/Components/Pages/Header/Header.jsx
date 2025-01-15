@@ -17,9 +17,9 @@ const Header = () => {
 
           {/*-------------- Header ---------------*/}
           <ul className="nav_bar" >
-              <NavLink to="/" style={{color:"white", textDecoration:"none", alignItems:"center"}}>Home</NavLink>
-              <NavLink to="/contact" style={{color:"white", textDecoration:"none"}}> Contact</NavLink>
-              <NavLink to="/about" style={{color:"white", textDecoration:"none"}}>About</NavLink>
+              <NavLink to="/" style={{color:"white", textDecoration:"none", padding:"7px", alignItems:"center"}}>Home</NavLink>
+              <NavLink to="/contact" style={{color:"white", padding:"7px" ,textDecoration:"none"}}> Contact</NavLink>
+              <NavLink to="/about" style={{color:"white", padding:"7px", textDecoration:"none"}}>About</NavLink>
             </ul>
             <ul className="cart-nav">
 
