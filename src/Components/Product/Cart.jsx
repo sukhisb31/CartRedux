@@ -1,20 +1,16 @@
 
 
-import { useSelector } from "react-redux";
-import { selectCartItems } from "../Redux/cartSlice";
-
-
-
+import { useDispatch, useSelector } from "react-redux";
+import { selectCartItems,clearCart } from "../Redux/cartSlice";
 const Cart = () => {
-  
+
+  const dispatch = useDispatch();
   const cartItem = useSelector(selectCartItems);
   console.log(cartItem);
   return (
     <>
-
-      
-
-        {cartItem.map((item) => (
+      <div className="container">
+      {cartItem.map((item) => (
           <div key={item.id} className="container my-5">
             <div
               className="card mb-3 bg-dark text-light text-center"
@@ -43,13 +39,17 @@ const Cart = () => {
                 </div>
               </div>
             </div>
+          
           </div>
         ))}
 
-        
-      
+          {/* Clear Button */}
+      <div className="clear">
+        <button className="btn btn-warning "  style={{justifyItems:"center"}} onClick={()=>{dispatch(clearCart())}}>Clear Cart</button>
+      </div>
+    
+      </div>
     </>
-  );
-};
-
+  )
+}
 export default Cart;

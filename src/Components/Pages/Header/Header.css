@@ -3,12 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-.navbar{
-    display: flex;
-}
 .logo-img{
     width:65px;
 }
-.nav_bar{
+.navbar{
     gap:10px;
 }

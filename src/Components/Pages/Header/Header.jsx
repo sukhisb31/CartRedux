@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <>
       <div className="container">
-        <div className="navbar bg-primary ">
+        <div className="nav_bar bg-primary sticky-top">
 
             {/*------------- Logo ---------------*/}
           <div className="logo">
@@ -19,10 +19,10 @@ const Header = () => {
           </div>
 
           {/*-------------- Header ---------------*/}
-          <ul className="nav_bar" >
-              <NavLink to="/" style={{color:"white", textDecoration:"none", padding:"7px", alignItems:"center"}}>Home</NavLink>
-              <NavLink to="/contact" style={{color:"white", padding:"7px" ,textDecoration:"none"}}> Contact</NavLink>
-              <NavLink to="/about" style={{color:"white", padding:"7px", textDecoration:"none"}}>About</NavLink>
+          <ul className="navbar"  >
+              <NavLink to="/" style={{color:"white", textDecoration:"none", alignItems:"center"}}>Home</NavLink>
+              <NavLink to="/contact" style={{color:"white" ,textDecoration:"none"}}> Contact</NavLink>
+              <NavLink to="/about" style={{color:"white", textDecoration:"none"}}>About</NavLink>
             </ul>
             <ul className="cart-nav">
 
