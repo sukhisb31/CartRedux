@@ -1,9 +1,13 @@
-
-
 import { useDispatch, useSelector } from "react-redux";
-import { selectCartItems,clearCart, decrementItem, incrementItem, selectCartTotal} from "../Redux/cartSlice";
+import {
+  selectCartItems,
+  clearCart,
+  decrementItem,
+  incrementItem,
+  selectCartTotal,
+} from "../Redux/cartSlice";
+import "./cart.css";
 const Cart = () => {
-
   const dispatch = useDispatch();
   const cartItem = useSelector(selectCartItems);
   console.log(cartItem);
@@ -11,11 +15,11 @@ const Cart = () => {
   return (
     <>
       <div className="container">
-      {cartItem.map((item) => (
+        {cartItem.map((item) => (
           <div key={item.id} className="container my-5">
             <div
               className="card mb-3 bg-dark text-light text-center"
-              style={{ width: "650px" }}
+              style={{ width: "500px" }}
             >
               <div className="row g-0">
                 <div className="col-md-4">
@@ -34,9 +38,21 @@ const Cart = () => {
                     <p className="card-text">{item.name}</p>
 
                     {/* Increment Decrement button */}
-                    <button className="btn btn-light mx-3 " onClick={()=>dispatch(decrementItem(item))}>-</button>
-                      {item.quantity}
-                    <button className="btn btn-light mx-3 " onClick={()=>dispatch(incrementItem(item))}>+</button><br /><br />
+                    <button
+                      className="btn btn-light mx-3 "
+                      onClick={() => dispatch(decrementItem(item))}
+                    >
+                      -
+                    </button>
+                    {item.quantity}
+                    <button
+                      className="btn btn-light mx-3 "
+                      onClick={() => dispatch(incrementItem(item))}
+                    >
+                      +
+                    </button>
+                    <br />
+                    <br />
                     <button className="btn btn-primary mx-3">
                       {item.price} ₹
                     </button>
@@ -44,22 +60,34 @@ const Cart = () => {
                 </div>
               </div>
             </div>
-          
           </div>
         ))}
-<h1>{
-    cartTotal
-  }</h1>
-          {/* Clear Button */}
-      <div className="clear" style={{marginLeft:"45%"}}>
-
-        <button className="btn btn-warning "  style={{justifyContent:"center"}} onClick={()=>{dispatch(clearCart())}}>Clear Cart</button>
-        <button className="btn btn-warning">Buy Now</button>
-
-      </div>
-    
+        <h2
+          className="total"
+          style={{
+            textAlign: "center",
+            border: "2px solid lightgray",
+            width: "40%",
+          }}
+        >
+          {" "}
+          Total Price of all Items : {cartTotal}
+        </h2>
+        {/* Clear Button */}
+        <div className="clear">
+          <button
+            className="btn btn-warning m-4"
+            style={{ justifyContent: "center" }}
+            onClick={() => {
+              dispatch(clearCart());
+            }}
+          >
+            Clear Cart
+          </button>
+          <button className="btn btn-warning">Buy Now</button>
+        </div>
       </div>
     </>
-  )
-}
+  );
+};
 export default Cart;

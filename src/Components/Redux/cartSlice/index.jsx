@@ -15,24 +15,19 @@ export const cartSlice = createSlice({
     reducers: {
         addToCart: (state, action) => {
             const newItem = action.payload;
-            // Check if the item already exists in the cart
             const existingItem = state.items.find(item => item.id === newItem.id);
 
             if (existingItem) {
-                // If the item exists, increase the quantity by 1
                 existingItem.quantity += 1;
             } else {
-                // If the item doesn't exist, add it to the cart with quantity = 1
                 state.items.push({ ...newItem, quantity: 1 });
             }
-
-            // Recalculate total and count
             recalculateCart(state);
         },
         clearCart: (state) => {
             state.items = [];
-            state.total = 0; // Reset total to zero
-            state.count = 0; // Reset count to zero
+            state.total = 0; 
+            state.count = 0;
         },
         incrementItem: (state, action) => {
             const myItem = action.payload;
@@ -41,8 +36,6 @@ export const cartSlice = createSlice({
             if (item) {
                 item.quantity += 1;
             }
-
-            // Recalculate total and count
             recalculateCart(state);
         },
         decrementItem: (state, action) => {
@@ -55,11 +48,8 @@ export const cartSlice = createSlice({
                 if (item.quantity > 1) {
                     item.quantity -= 1;
                 } else {
-                    // Remove the item if quantity is 1
                     state.items.splice(itemIndex, 1);
                 }
-
-                // Recalculate total and count
                 recalculateCart(state);
             }
         },
