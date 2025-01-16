@@ -6,7 +6,7 @@ import {
   incrementItem,
   selectCartTotal,
 } from "../Redux/cartSlice";
-import "./cart.css";
+import "./Cart.css";
 const Cart = () => {
   const dispatch = useDispatch();
   const cartItem = useSelector(selectCartItems);
